@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Story — Logo Brand Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:   #4A7C6F;
+    --orange:  #E8724A;
+    --offwhite:#F0ECD8;
+    --sage:    #F0F5F0;
+    --black:   #0A0A0A;
+    --ink:     #1A1A1A;
+    --mid:     #6B7280;
+    --border:  #E2EDE8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:#ECEEE9; color:var(--ink); }
+
+  .page-header {
+    background: var(--black);
+    padding: 52px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .page-header h1 { font-size: clamp(24px,3.5vw,44px); color: white; font-weight: 800; letter-spacing: -1px; line-height:1.1; }
+  .page-header h1 span { color: var(--orange); }
+  .page-header p { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 8px; }
+  .header-logo {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    padding: 14px 22px; border-radius: 16px;
+  }
+  .header-logo span { color: white; font-weight: 800; font-size: 17px; letter-spacing: -0.3px; }
+  .header-logo small { display:block; color: var(--orange); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+
+  .sec { padding: 52px 60px; border-bottom: 1px solid #D8D5CE; }
+  .sec:nth-child(even) { background: #F5F3EE; }
+  .sec:nth-child(odd) { background: #FAFAF7; }
+  .sec-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .sec-tag::after { content:''; height:1px; width:40px; background: #E8724A55; }
+  .sec h2 { font-size: clamp(20px,2.8vw,34px); font-weight: 800; letter-spacing: -0.7px; margin-bottom: 6px; }
+  .sec p { color: var(--mid); font-size: 14px; margin-bottom: 36px; max-width: 520px; line-height:1.7; }
+
+  /* LOGO CARD GRID */
+  .logo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  .lc {
+    border-radius: 20px; padding: 44px 20px 28px;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+    min-height: 220px;
+  }
+  .lc-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; opacity: 0.5; }
+  .lc.on-black { background: #0A0A0A; }
+  .lc.on-black .lc-label { color: white; }
+  .lc.on-white { background: #FFFFFF; border: 1px solid var(--border); }
+  .lc.on-white .lc-label { color: var(--ink); }
+  .lc.on-green { background: var(--green); }
+  .lc.on-green .lc-label { color: white; }
+  .lc.on-orange { background: var(--orange); }
+  .lc.on-orange .lc-label { color: white; }
+  .lc.on-sage { background: var(--sage); border: 1px solid var(--border); }
+  .lc.on-sage .lc-label { color: var(--ink); }
+  .lc.on-offwhite { background: var(--offwhite); border: 1px solid #DDD8C8; }
+  .lc.on-offwhite .lc-label { color: var(--ink); }
+
+  /* HORIZONTAL LOCKUP */
+  .lockup { display: flex; align-items: center; gap: 16px; }
+  .lockup-text { border-left: 2px solid; padding-left: 16px; }
+  .lockup-text .name { font-weight: 800; font-size: 22px; letter-spacing: -0.4px; line-height: 1; }
+  .lockup-text .sub { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-top: 5px; }
+
+  .lockup-card { border-radius: 16px; padding: 32px 36px; margin-bottom: 10px; }
+
+  /* ICON SIZES */
+  .icon-row { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .icon-item span { font-size: 10px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* SWATCHES */
+  .swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 150px; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+  .sw-color { height: 88px; }
+  .sw-info { background: white; padding: 12px 14px; }
+  .sw-name { font-weight: 700; font-size: 13px; }
+  .sw-hex { font-size: 11px; color: #999; font-family: monospace; margin-top: 2px; }
+  .sw-role { font-size: 10px; color: var(--orange); font-weight: 600; margin-top: 2px; letter-spacing: 0.5px; }
+
+  /* PLATFORM MOCKUPS */
+  .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .platform-card { border-radius: 16px; overflow: hidden; }
+
+  footer { background: var(--black); color: rgba(255,255,255,0.3); padding: 32px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  footer strong { color: rgba(255,255,255,0.6); }
+
+  @media(max-width:680px) {
+    .page-header, .sec, footer { padding: 32px 20px; }
+    .logo-grid { grid-template-columns: 1fr 1fr; }
+    .platform-grid { grid-template-columns: 1fr; }
+    .header-logo { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <h1>Second Story<br><span>Logo Brand Kit</span></h1>
+    <p>App brand colors applied to the original cart+S logo · All variants</p>
+  </div>
+  <div class="header-logo">
+    <!-- Logo preview in header -->
+    <svg width="44" height="44" viewBox="0 0 110 110" fill="none">
+      <!-- Cart outline — GREEN -->
+      <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Wheels — ORANGE -->
+      <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+      <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+      <!-- S letterform — OFF-WHITE -->
+      <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+      <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <span>Second Story</span>
+      <small>Marketplace</small>
+    </div>
+  </div>
+</div>
+
+
+<!-- 01 ICON VARIANTS -->
+<div class="sec">
+  <div class="sec-tag">01 — Icon Variants</div>
+  <h2>The Logo Mark</h2>
+  <p>Cart in <strong style="color:var(--green)">hero green</strong>, wheels in <strong style="color:var(--orange)">terracotta orange</strong>, S letterform in <strong style="color:#B8A88A">off-white</strong> — across every background.</p>
+
+  <div class="logo-grid">
+
+    <!-- PRIMARY: On Black -->
+    <div class="lc on-black">
+      <svg width="100" height="100" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lc-label">Primary · Dark ⭐</div>
+    </div>
+
+    <!-- On White -->
+    <div class="lc on-white">
+      <svg width="100" height="100" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lc-label">On White</div>
+    </div>
+
+    <!-- On Green -->
+    <div class="lc on-green">
+      <svg width="100" height="100" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lc-label">On Green</div>
+    </div>
+
+    <!-- On Orange -->
+    <div class="lc on-orange">
+      <svg width="100" height="100" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#0A0A0A"/>
+        <circle cx="76" cy="83" r="7" fill="#0A0A0A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lc-label">On Orange</div>
+    </div>
+
+    <!-- On Sage -->
+    <div class="lc on-sage">
+      <svg width="100" height="100" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lc-label">On Sage</div>
+    </div>
+
+    <!-- Monochrome -->
+    <div class="lc on-offwhite">
+      <svg width="100" height="100" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#1A1A1A"/>
+        <circle cx="76" cy="83" r="7" fill="#1A1A1A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lc-label">Monochrome</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 02 HORIZONTAL LOCKUP -->
+<div class="sec">
+  <div class="sec-tag">02 — Horizontal Lockup</div>
+  <h2>Logo + Wordmark</h2>
+  <p>Full lockup for nav bars, email headers, and wide-format placements.</p>
+
+  <!-- Dark -->
+  <div class="lockup-card" style="background:#0A0A0A; margin-bottom:10px;">
+    <div class="lockup">
+      <svg width="56" height="56" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lockup-text" style="border-color:rgba(255,255,255,0.12);">
+        <div class="name" style="color:white;">Second Story</div>
+        <div class="sub" style="color:var(--orange);">Marketplace</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Light -->
+  <div class="lockup-card" style="background:white; border:1px solid var(--border); margin-bottom:10px;">
+    <div class="lockup">
+      <svg width="56" height="56" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lockup-text" style="border-color:var(--border);">
+        <div class="name" style="color:#1A1A1A;">Second Story</div>
+        <div class="sub" style="color:var(--orange);">Marketplace</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Green -->
+  <div class="lockup-card" style="background:var(--green);">
+    <div class="lockup">
+      <svg width="56" height="56" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+        <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="lockup-text" style="border-color:rgba(255,255,255,0.2);">
+        <div class="name" style="color:white;">Second Story</div>
+        <div class="sub" style="color:var(--offwhite);">Marketplace</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 03 APP ICONS -->
+<div class="sec">
+  <div class="sec-tag">03 — App Icons</div>
+  <h2>Platform Sizes</h2>
+  <p>Rounded square and circle variants for App Store, Play Store, social profiles, favicons, and notification badges.</p>
+
+  <div class="icon-row">
+    <!-- 96px App Store -->
+    <div class="icon-item">
+      <div style="width:96px;height:96px;background:#0A0A0A;border-radius:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.2);">
+        <svg width="64" height="64" viewBox="0 0 110 110" fill="none">
+          <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+          <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+          <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+          <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>App Store</span>
+    </div>
+
+    <!-- 80px Play Store -->
+    <div class="icon-item">
+      <div style="width:80px;height:80px;background:#0A0A0A;border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+        <svg width="52" height="52" viewBox="0 0 110 110" fill="none">
+          <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+          <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+          <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round"/>
+          <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Play Store</span>
+    </div>
+
+    <!-- 64px Social circle -->
+    <div class="icon-item">
+      <div style="width:64px;height:64px;border-radius:50%;background:#0A0A0A;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+        <svg width="42" height="42" viewBox="0 0 110 110" fill="none">
+          <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+          <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+          <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round"/>
+          <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Social</span>
+    </div>
+
+    <!-- 48px Favicon -->
+    <div class="icon-item">
+      <div style="width:48px;height:48px;background:#0A0A0A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="32" height="32" viewBox="0 0 110 110" fill="none">
+          <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="42" cy="83" r="8" fill="#E8724A"/>
+          <circle cx="76" cy="83" r="8" fill="#E8724A"/>
+          <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round"/>
+          <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Favicon</span>
+    </div>
+
+    <!-- 36px Notification -->
+    <div class="icon-item">
+      <div style="width:36px;height:36px;background:#E8724A;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg width="24" height="24" viewBox="0 0 110 110" fill="none">
+          <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="42" cy="83" r="8" fill="#0A0A0A"/>
+          <circle cx="76" cy="83" r="8" fill="#0A0A0A"/>
+          <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="8" stroke-linecap="round"/>
+          <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Badge</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- 04 COLOR SYSTEM -->
+<div class="sec">
+  <div class="sec-tag">04 — Color System</div>
+  <h2>Brand Palette</h2>
+  <p>The three logo colors mapped to their role in the full brand system.</p>
+  <div class="swatches">
+    <div class="swatch">
+      <div class="sw-color" style="background:#4A7C6F;"></div>
+      <div class="sw-info"><div class="sw-name">Hero Green</div><div class="sw-hex">#4A7C6F</div><div class="sw-role">Cart Body · Hero BG · Nav</div></div>
+    </div>
+    <div class="swatch">
+      <div class="sw-color" style="background:#E8724A;"></div>
+      <div class="sw-info"><div class="sw-name">Terracotta Orange</div><div class="sw-hex">#E8724A</div><div class="sw-role">Wheels · CTA · Accent</div></div>
+    </div>
+    <div class="swatch">
+      <div class="sw-color" style="background:#F0ECD8; border:1px solid #E0D8C0;"></div>
+      <div class="sw-info"><div class="sw-name">Off-White</div><div class="sw-hex">#F0ECD8</div><div class="sw-role">S Letterform · Light Text</div></div>
+    </div>
+    <div class="swatch">
+      <div class="sw-color" style="background:#F0F5F0;border:1px solid #E2EDE8;"></div>
+      <div class="sw-info"><div class="sw-name">Light Sage</div><div class="sw-hex">#F0F5F0</div><div class="sw-role">App Background · Cards</div></div>
+    </div>
+    <div class="swatch">
+      <div class="sw-color" style="background:#0A0A0A;"></div>
+      <div class="sw-info"><div class="sw-name">Black</div><div class="sw-hex">#0A0A0A</div><div class="sw-role">Primary BG · Body Text</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 05 PLATFORM MOCKUPS -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-tag">05 — Platform Usage</div>
+  <h2>Live Mockups</h2>
+  <p>How the refreshed logo looks across your key digital touchpoints.</p>
+
+  <div class="platform-grid">
+
+    <!-- Splash screen -->
+    <div class="platform-card">
+      <div style="background:#0A0A0A;padding:56px 24px;display:flex;flex-direction:column;align-items:center;gap:18px;border-radius:16px 16px 0 0;">
+        <svg width="80" height="80" viewBox="0 0 110 110" fill="none">
+          <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+          <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+          <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+          <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div style="text-align:center;">
+          <div style="color:white;font-weight:800;font-size:22px;letter-spacing:-0.5px;">Second Story</div>
+          <div style="color:var(--orange);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-top:5px;">Marketplace</div>
+        </div>
+        <div style="width:36px;height:3px;background:var(--green);border-radius:2px;margin-top:4px;"></div>
+      </div>
+      <div style="background:#111;padding:10px 18px;border-radius:0 0 16px 16px;">
+        <div style="color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;">App Splash Screen</div>
+      </div>
+    </div>
+
+    <!-- Nav bar -->
+    <div class="platform-card">
+      <div style="background:var(--green);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-radius:16px 16px 0 0;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <svg width="32" height="32" viewBox="0 0 110 110" fill="none">
+            <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+            <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+            <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round"/>
+            <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round"/>
+          </svg>
+          <span style="color:white;font-weight:800;font-size:15px;letter-spacing:-0.3px;">Second Story</span>
+        </div>
+        <div style="background:var(--orange);padding:7px 16px;border-radius:20px;color:white;font-size:12px;font-weight:800;">Sell Now</div>
+      </div>
+      <div style="background:var(--sage);padding:28px 20px;display:flex;gap:12px;border-radius:0 0 16px 16px;">
+        <div style="flex:1;background:white;border-radius:12px;padding:12px;border:1px solid var(--border);font-size:12px;color:var(--mid);">🔍 Search nearby...</div>
+        <div style="width:40px;height:40px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📍</div>
+      </div>
+      <div style="background:var(--sage);padding:4px 18px 10px;border-radius:0;border-top:1px solid var(--border);">
+        <div style="color:var(--mid);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;">App Nav Bar · Web Header</div>
+      </div>
+    </div>
+
+    <!-- Social profile -->
+    <div class="platform-card">
+      <div style="background:#0A0A0A;padding:24px 20px;display:flex;align-items:center;gap:14px;border-radius:16px 16px 0 0;">
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="36" height="36" viewBox="0 0 110 110" fill="none">
+            <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+            <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+            <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round"/>
+            <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="flex:1;">
+          <div style="color:white;font-weight:800;font-size:15px;">Second Story</div>
+          <div style="color:var(--orange);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-top:2px;">@secondstory</div>
+        </div>
+        <div style="background:var(--orange);padding:7px 18px;border-radius:20px;color:white;font-size:12px;font-weight:800;">Follow</div>
+      </div>
+      <div style="background:#111;padding:10px 18px;border-radius:0 0 16px 16px;">
+        <div style="color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;">Instagram · Twitter · Facebook</div>
+      </div>
+    </div>
+
+    <!-- Email signature -->
+    <div class="platform-card">
+      <div style="background:white;border:1px solid var(--border);padding:22px 24px;border-radius:16px 16px 0 0;">
+        <div style="display:flex;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:14px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:#0A0A0A;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="30" height="30" viewBox="0 0 110 110" fill="none">
+              <path d="M12 24 L20 24 L32 72 L88 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M28 36 L92 36 L84 72" stroke="#4A7C6F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="42" cy="83" r="7" fill="#E8724A"/>
+              <circle cx="76" cy="83" r="7" fill="#E8724A"/>
+              <path d="M66 42 C66 42 50 42 50 50 C50 58 66 58 66 66 C66 74 48 74 48 74" stroke="#F0ECD8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <line x1="48" y1="42" x2="68" y2="42" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+              <line x1="46" y1="74" x2="66" y2="74" stroke="#F0ECD8" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:15px;color:#0A0A0A;">Second Story</div>
+            <div style="font-size:10px;color:var(--orange);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-top:3px;">Marketplace</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--mid);line-height:1.7;">hello@secondstory.app<br>secondstory.app<br><span style="color:var(--green);font-style:italic;">Every item has a second story.</span></div>
+      </div>
+      <div style="background:var(--sage);padding:10px 18px;border-radius:0 0 16px 16px;border:1px solid var(--border);border-top:none;">
+        <div style="color:var(--mid);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;">Email Signature</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="width:28px;height:28px;border-radius:6px;background:var(--green);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 110 110" fill="none">
+        <path d="M12 24 L20 24 L32 72 L88 72" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M28 36 L92 36 L84 72" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="42" cy="83" r="8" fill="#E8724A"/>
+        <circle cx="76" cy="83" r="8" fill="#E8724A"/>
+      </svg>
+    </div>
+    <strong>Second Story</strong>
+  </div>
+  <span>Logo Brand Kit · App Colors Edition · 2025</span>
+</footer>
+
+</body>
+</html>
